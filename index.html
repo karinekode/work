@@ -249,11 +249,10 @@ Always learning, always building. Let's connect:
                             <!-- <br> <br> Achieved high utilisation with 100+ monthly active users  -->
 
                             <div class="tech-icons"> <i> Built using: &nbsp;
-                            <span title="Bigquery"><i class="fa fa-cogs" aria-hidden="true"></i> Bigquery</span>
-                            <span title="LangChain"><i class="fab fa-python" aria-hidden="true"></i> LangChain</span>
-                            <span title="FastAPI"><i class="fa fa-code" aria-hidden="true"></i>FastAPI</span>
-                            <span title="GPT & Gemini"><i class="fa fa-code" aria-hidden="true"></i> GPT & Gemini</span>
-                             <span title="Cloudrun"><i class="fa fa-cloud" aria-hidden="true"></i> Cloudrun</span> </i>
+                            <span title="MCP"><i class="fa fa-cogs" aria-hidden="true"></i> MCP</span>
+                            <span title="FastAPI"><i class="fa fa-code" aria-hidden="true"></i>GCS</span>
+                            <span title="Claude, Gemini, GPT"><i class="fa fa-code" aria-hidden="true"></i> Claude, Gemini, GPT models</span>
+                             <span title="Cloudrun"><i class="fa fa-cloud" aria-hidden="true"></i> Google Cloud run</span> </i>
            
                             </div>
                             
@@ -432,50 +431,57 @@ gpt: {
   description: `
 
 
-            <img src="images/gpt_info3.png" alt="Chatbot Screenshot" style="max-width: 95%; border-radius: 17px; height: auto; margin-bottom: 16px;">
+            <img src="images/gpt_info4.png" alt="Chatbot Screenshot" style="max-width: 95%; border-radius: 17px; height: auto; margin-bottom: 16px;">
                         
     <br> <b>Problem: </b>
     <br> 
     <ul><li> 
-    Teams struggle to find information across numerous & complex documents, slowing decision-making and processes 
+    Internal teams were spending significant time manually searching through documents and internal knowledge bases to answer business queries, with no unified, reliable system
     <br><br> 
 
     </li></ul>
     
     <b>Approach: </b> <br>
     <ul><li>
-       Developed LLM chatbot to enable conversational-style queries, providing users with knowledge from cited internal sources. For example, links to relevant internal tools and details of standard operational processes 
+       Designed and productionized a multi-agent LLM webapp orchestrated via MCP - including RAG retrieval agent over Google Cloud Storage for document-based queries, and a live Elium API search agent that surfaces and cites real-time knowledge base results
+
        <br><br>
   
 
-Managed the full lifecycle, including data ingestion and processing in BigQuery, followed by embedding generation and vector storage.
+
+Integrated Claude, Gemini, and GPT models 
 
   <br><br>
-  Built a FastAPI backend deployed on Cloud Run, with LangChain embedded in the app layer to route queries dynamically across GPT-4.1 and Gemini based on complexity, latency, and context length.
-  <br><br>
-  The system retrieves semantically relevant context from a vector database to generate grounded responses.
 
     </li></ul>
 
 
     <b>Result: </b> <br>
-    <ul><li>Enabled scalable self-service, time savings, and reduced knowledge gaps. 
+    <ul><li>  Optimised inference pipelines to reduce latency by 15%, achieving >90% answer relevance across 120+ monthly active users
 
         
         </li></ul>
   
     <b>What I Learnt: </b> <br>
     <ul><li> 
-        Tackling challenges like optimizing latency, managing API costs, and ensuring reliability pushed me to experiment with caching strategies, tune model parameters, and design robust, scalable solutions. 
+        Using MCP for tool integration was a turning point. Compared to ad-hoc API wiring, MCP gave each agent a structured, standardised way to call external tools like the Elium API - making the system far easier to extend and maintain. It also made swapping or adding models (Claude, Gemini, GPT) much cleaner since the tool layer was decoupled from the model layer
+
         <br><br>
-        Hearing feedback that the tool makes users' work easier motivates me to continue building more impactful solutions.
-        
+        Designing multi-agent systems forced me to think beyond model selection, the hard part is defining clean boundaries between agents. Each agent needs a well-scoped retrieval strategy, predictable failure modes, and a clear handoff protocol, otherwise errors cascade silently and are difficult to debug in production
+        <br><br>
+        On the infrastructure side, optimising inference pipelines taught me that latency isn't just a technical metric,  it directly affects whether users trust and adopt the tool. A response that takes too long feels unreliable, regardless of accuracy.
+        <br><br>
+        I tackled this through three key strategies: prompt compression to reduce token overhead on every call, caching frequent queries so repeated questions bypassed the retrieval pipeline entirely, and async parallel agent calls so both agents could retrieve simultaneously rather than sequentially. Overall, the strategies cut latency by 15%, and the difference in user experience was immediately noticeable.
+
+
         </li></ul>
+
+     <img src="images/gpt_info5.png" alt="Chatbot Screenshot" style="max-width: 95%; border-radius: 17px; height: auto; margin-bottom: 16px;">
     
 
         `,
 
-        tools: '<b><i>Tools Used: LangChain, Bigquery, FastAPI, Docker, CloudRun, GPT & Gemini</b></i>'
+        tools: '<b><i>Tools Used: MCP, GCS, Elium API, RAG, Google cloud run</b></i>'
 
         
     },   
