@@ -50,9 +50,9 @@ header{
 
 #lead {
   position: relative;
-  height: 70vh;
-  min-height: 500px;
-  max-height: 900px;
+  height: 50vh;
+  min-height: 400px;
+  max-height: 700px;
   background: url(../images/lead-bg.jpg);
   background-size: cover;
   background-position: center;
@@ -74,7 +74,7 @@ header{
 #lead-content h1 {
   color: #fff;
   font-weight: 800;
-  font-size: 4em;
+  font-size: 3.5em;
   letter-spacing: 0.02em;
   line-height: 1.1;
   margin: 0 0 15px 0;
@@ -83,7 +83,7 @@ header{
 #lead-content h2 {
   color: #d6e9f8;
   font-weight: 400;
-  font-size: 1.5em;
+  font-size: 1.4em;
   line-height: 1.4;
   margin: 0 0 20px 0;
 }
