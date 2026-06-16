@@ -33,7 +33,7 @@ header{
 
 #lead {
   position: relative;
-  height: 50vh;
+  height: 60vh;
   min-height: 400px;
   max-height: 700px;
   background: url(../images/lead-bg.jpg);
