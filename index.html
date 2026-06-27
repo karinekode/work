@@ -514,24 +514,23 @@ forecast: {
 
     <br>
     <b>The Solution: </b> <br><br>
-I wanted to build the <b>right model for each type of product</b>, because not all SKUs behave the same way
+The goal was to build the <b>right model for each type of product</b>, because not all SKUs behave the same way
 
 <br><br>
 
 
 <ul>
-  <li>⚡ <b>LightGBM: The Workhorse</b>
+  <li>⚡ <b>LightGBM (stable SKUs)</b>
     <br>
     For high-volume, stable products, speed and reliability were everything. A LightGBM model retrained every week kept forecasts fresh without heavy compute costs. 
     
-    <br><br>And the real differentiator? <b>SHAP explainability</b> - so when a stakeholder asked <i>"why is the model predicting a spike next month?"</i> , I have a clear, visual answer. 
-    Trust was built with transparency: 
+    <br><br>The real differentiator was <b>SHAP explainability</b>. With this, when a stakeholder asks <i>"why is the model predicting a spike next month?"</i> , there's a clear, visual answer:
   </li>
       <br> <img src="images/image009.png" style="max-width: 95%; border-radius: 17px; height: auto; margin-bottom: 16px;">
-                <br><i> Demand driver breakdown </i>
+                <br><i> Included clear breakdown of Demand drivers </i>
   <br><br><br>
 
-  <li>🔮 <b>Temporal Fusion Transformer: The Crystal Ball</b>
+  <li>🔮 <b>Temporal Fusion Transformer (new launch, long-tail SKUs) </b>
     <br>
     New product launches and long-tail SKUs were the toughest challenge for demand planners. These products have <i>no history, no signal, no safety net</i>. For these cold-start SKUs and complex seasonal products such as holiday gift sets, I utilised <b>Temporal Fusion Transformer (TFT)</b>, a state-of-the-art deep learning architecture designed specifically for time series.
     <br><br>
@@ -542,7 +541,7 @@ I wanted to build the <b>right model for each type of product</b>, because not a
 </ul>
 
 <br>
-      <b><i>I also added a data quality tab to flag missing data in advance: </b></i> <br>
+      <b><i>Data quality tab to flag missing data in advance: </b></i> <br>
 
         <br> <img src="images/image013.png" style="max-width: 95%; border-radius: 17px; height: auto; margin-bottom: 16px;">
         
@@ -551,7 +550,7 @@ I wanted to build the <b>right model for each type of product</b>, because not a
 <br><br>
     <b>The Impact: </b> <br>
 
-    What was once a <i>slow, spreadsheet-driven guessing game</i> became an <b>automated, intelligent forecasting engine</b>... producing best-in-class forecasting and eventually winning <b>L'Oreal's Global Tech Blazer Award</b> 🏆
+    What was once a <i>slow, spreadsheet-driven guessing game</i> became an <b>automated, intelligent forecasting engine</b> - producing best-in-class forecasting and eventually winning <b>L'Oreal's Global Tech Blazer Award</b> 
 
 <br>
 <ul>
