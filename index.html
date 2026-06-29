@@ -440,6 +440,7 @@
         // <img src="images/gpt.png" alt="Chatbot Screenshot" style="max-width: 95%; border-radius: 17px; height: auto; margin-bottom: 16px;">
 
         // <img src="images/gpt_info4.png" alt="Chatbot Screenshot" style="max-width: 95%; border-radius: 17px; height: auto; margin-bottom: 16px;">
+ml: null, 
 gpt: {
   title: 'LLM Chatbot for Enterprise Knowledge',
   description: `
@@ -640,6 +641,8 @@ reco: {
 
   };
 
+  projectsData.ml = projectsData.forecast;
+
   function openModal(projectKey) {
     const data = projectsData[projectKey];
     if (!data) return;
@@ -671,6 +674,7 @@ closeBtn.onclick = () => {
 
   window.addEventListener('DOMContentLoaded', () => {
   const hash = window.location.hash.replace('#', '');
+  
   if (hash && projectsData[hash]) {
     openModal(hash);
   }
