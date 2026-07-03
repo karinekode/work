@@ -883,18 +883,17 @@ footer {
   }
 
   #menu {
-    height: 70px;
+    height: 300px;
     overflow-y: auto;
     box-shadow: none;
     border-radius: 0;
     width: 100%;
-    background-color: #003366; /* 👈 ADD THIS — matches your sticky header colour */
+    background-color: #003366; 
   }
 
   #menu li {
     height: 70px;
     display: block;
-    margin-bottom: 10px;
   }
 
   #lead-content h1 { font-size: 2em; }
