@@ -888,6 +888,7 @@ footer {
     box-shadow: none;
     border-radius: 0;
     width: 100%;
+    background-color: #003366; /* 👈 ADD THIS — matches your sticky header colour */
   }
 
   #menu li {
