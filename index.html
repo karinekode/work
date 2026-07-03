@@ -516,19 +516,11 @@ tools: '<div style="display: flex; justify-content: center; align-items: center;
 
 //        <br><br>
   
-
-
 // Integrated Claude, Gemini, and GPT models 
-
 //   <br><br>
-
 //     </li></ul>
-
-
 //     <b>Result: </b> <br>
 //     <ul><li>  Optimised inference pipelines to reduce latency by 15%, achieving >90% answer relevance across 120+ monthly active users
-
-        
 //         </li></ul>
 
 
@@ -546,55 +538,55 @@ forecast: {
 
     <br>
     <b>The Solution: </b> <br><br>
-The goal was to build the <b>right model for each type of product</b>, because not all SKUs behave the same way
+    The goal was to build the <b>right model for each type of product</b>, because not all SKUs behave the same way
 
-<br><br>
-
-
-<ul>
-  <li>⚡ <b>LightGBM (stable SKUs)</b>
-    <br>
-    For high-volume, stable products, speed and reliability were everything. A LightGBM model retrained every week kept forecasts fresh without heavy compute costs. 
-    
-    <br><br>The real differentiator was <b>SHAP explainability</b>. With this, when a stakeholder asks <i>"why is the model predicting a spike next month?"</i> , there's a clear, visual answer:
-  </li>
-      <br> <img src="images/image009.png" style="max-width: 95%; border-radius: 17px; height: auto; margin-bottom: 16px;">
-                <br><i> Included clear breakdown of Demand drivers </i>
-  <br><br><br>
-
-  <li>🔮 <b>Temporal Fusion Transformer (new launch, long-tail SKUs) </b>
-    <br>
-    New product launches and long-tail SKUs were the toughest challenge for demand planners. These products have <i>no history, no signal, no safety net</i>. For these cold-start SKUs and complex seasonal products such as holiday gift sets, I utilised <b>Temporal Fusion Transformer (TFT)</b>, a state-of-the-art deep learning architecture designed specifically for time series.
     <br><br>
-    It could <b>automatically detect seasonality, include future inputs </b> (e.g marketing promo spend) & <b> output confidence intervals</b>, giving planners a range of likely futures to make smarter decisions
-  </li>
-<br>
-      <img src="images/image007.png" style="max-width: 95%; border-radius: 17px; height: auto; margin-bottom: 16px;"> 
-</ul>
 
-<br>
-      <b><i>Data quality tab to flag missing data in advance: </b></i> <br>
 
-        <br> <img src="images/image013.png" style="max-width: 95%; border-radius: 17px; height: auto; margin-bottom: 16px;">
+    <ul>
+    <li>⚡ <b>LightGBM (stable SKUs)</b>
+        <br>
+        For high-volume, stable products, speed and reliability were everything. A LightGBM model retrained every week kept forecasts fresh without heavy compute costs. 
         
-        </li></ul>
+        <br><br>The real differentiator was <b>SHAP explainability</b>. With this, when a stakeholder asks <i>"why is the model predicting a spike next month?"</i> , there's a clear, visual answer:
+    </li>
+        <br> <img src="images/image009.png" style="max-width: 95%; border-radius: 17px; height: auto; margin-bottom: 16px;">
+                    <br><i> Included clear breakdown of Demand drivers </i>
+    <br><br><br>
 
-<br><br>
-    <b>The Impact: </b> <br>
+    <li>🔮 <b>Temporal Fusion Transformer (new launch, long-tail SKUs) </b>
+        <br>
+        New product launches and long-tail SKUs were the toughest challenge for demand planners. These products have <i>no history, no signal, no safety net</i>. For these cold-start SKUs and complex seasonal products such as holiday gift sets, I utilised <b>Temporal Fusion Transformer (TFT)</b>, a state-of-the-art deep learning architecture designed specifically for time series.
+        <br><br>
+        It could <b>automatically detect seasonality, include future inputs </b> (e.g marketing promo spend) & <b> output confidence intervals</b>, giving planners a range of likely futures to make smarter decisions
+    </li>
+    <br>
+        <img src="images/image007.png" style="max-width: 95%; border-radius: 17px; height: auto; margin-bottom: 16px;"> 
+    </ul>
+
+    <br>
+        <b><i>Data quality tab to flag missing data in advance: </b></i> <br>
+
+            <br> <img src="images/image013.png" style="max-width: 95%; border-radius: 17px; height: auto; margin-bottom: 16px;">
+            
+            </li></ul>
+
+    <br><br>
+        <b>The Impact: </b> <br>
 
     What was once a <i>slow, spreadsheet-driven guessing game</i> became an <b>automated, intelligent forecasting engine</b> - producing best-in-class forecasting and eventually winning <b>L'Oreal's Global Tech Blazer Award</b> 
 
-<br>
-<ul>
-  <li>✅ <b>Faster</b> planning cycles</li>
-  <li>✅ <b>Leaner</b> inventory</li>
-  <li>✅ <b>Fewer</b> missed sales windows</li>
-  <li>✅ Forecasts that stakeholders actually <b>understood and trusted</b></li>
-</ul> 
-<br>
-<i>Behind the models was just as much people work as technical work. Aligning supply chain planners, commercial teams, and leadership around a new way of forecasting required constant communication, iteration and trust!</i>
+    <br>
+    <ul>
+    <li>✅ <b>Faster</b> planning cycles</li>
+    <li>✅ <b>Leaner</b> inventory</li>
+    <li>✅ <b>Fewer</b> missed sales windows</li>
+    <li>✅ Forecasts that stakeholders actually <b>understood and trusted</b></li>
+    </ul> 
+    <br>
+    <i>Behind the models was just as much people work as technical work. Aligning supply chain planners, commercial teams, and leadership around a new way of forecasting required constant communication, iteration and trust!</i>
 
-<hr>
+    <hr>
 
         `,
 
@@ -675,23 +667,25 @@ reco: {
 
   projectsData.ml = projectsData.forecast;
 
-  function openModal(projectKey) {
+function openModal(projectKey) {
     const data = projectsData[projectKey];
     if (!data) return;
 
     modal.style.display = 'flex';
-    modal.querySelector('#modal-title').textContent = data.title;
-    modal.querySelector('#modal-tools').innerHTML = `${data.tools}`;
+    modal.querySelector('#modal-title').textContent     = data.title;
+    modal.querySelector('#modal-tools').innerHTML       = `${data.tools}`;
     modal.querySelector('#modal-description').innerHTML = data.description;
 
     const highlightsUl = modal.querySelector('#modal-highlights');
     highlightsUl.innerHTML = '';
-    data.highlights.forEach(item => {
-      const li = document.createElement('li');
-      li.textContent = item;
-      highlightsUl.appendChild(li);
-    });
-  }
+    if (data.highlights) {
+        data.highlights.forEach(item => {
+            const li       = document.createElement('li');
+            li.textContent = item;
+            highlightsUl.appendChild(li);
+        });
+    }
+}
 
 closeBtn.onclick = () => {
   modal.style.display = 'none';
