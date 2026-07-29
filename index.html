@@ -599,10 +599,13 @@ forecast: {
 reco: {
     title: 'Personalized Recommendation Engine',
     description: `
-    <br> <b>The Problem: </b> <br> 
-    
-    <ul><li>
-        With <b>300+ sales reps</b> and <b>10,000+ healthcare professionals (HCPs)</b> across different markets, J&J's commercial teams faced an impossible question every day:
+        <br>
+
+        <b>The Problem</b> <br><br>
+
+        <div style="margin-left:22px;">
+
+        Sales representatives make hundreds of engagement decisions each week: which healthcare professional to contact, what content to share, which channel to use, and how often to follow up.
 
         <br><br>
 
@@ -610,41 +613,59 @@ reco: {
 
         <br><br>
 
-        Left to intuition, reps would naturally gravitate toward the same familiar doctors, the same content, the same habits... leaving significant sales uplift on the table.
-    </li></ul>
-    <b>The Solution: </b>
-    <br>
+        Left to intuition, reps would naturally gravitate toward the same familiar doctors, the same content and the same habits—leaving significant sales uplift on the table. With over <b>300 sales representatives</b> and <b>10,000+ healthcare professionals</b> across multiple APAC markets, these decisions quickly became too complex to optimise manually. The goal was to recommend the next best action for every sales rep–doctor pair based on the expected business impact.
 
-    <ul><li>
-        For every Sales Rep and Doctor pair, the goal is to predict the expected sales uplift for each possible (channel, content, frequency) combination, and surface the highest-scoring one.
+        </div>
 
         <br><br>
 
-        🧠 <b>The Model: Deep Neural Network</b>
-        <br>
-        With thousands of reps and HCPs, traditional one-hot encoding would create an explosively large, sparse feature space. Instead, I designed a neural network with:
-            <br>
+        <b>The Approach</b><br><br>
+
+        <div style="margin-left:22px;">
+
+        For each <b>sales representative × healthcare professional (HCP)</b> pair, the model evaluated every viable engagement strategy by considering:
+
         <ul>
-        <li><b>Embedding layers</b> representing each rep and doctor as a dense vector, where <i>similar doctors get similar representations</i>, learned directly from the data</li>
-        <li><b>MLP layers</b> to capture complex interactions between rep, doctor, and action features</li>
-        <li><b>Regression output</b> predicting continuous sales uplift for each combination</li>
+            <li><b>Communication channel</b></li>
+            <li><b>Content</b></li>
+            <li><b>Contact frequency</b></li>
         </ul>
 
-        <br>
+        It predicted the <b>expected sales uplift</b> for each combination and surfaced the highest-scoring recommendation directly within the commercial workflow.
+
+        </div>
+
+        <br><br>
+
+        <b><i>    Deep Neural Network</i></b><br>
+
+        <div style="margin-left:22px;">
+
+        With thousands of sales representatives and HCPs, traditional one-hot encoding would produce a high-dimensional, sparse feature space. To address this, I developed a deep neural network consisting of:
+
+        <ul>
+            <li><b>Embedding layers</b> that learned dense representations for each sales representative and HCP, allowing similar entities to share meaningful latent features</li>
+
+            <li><b>Behavioural and engagement features</b> combined with the learned embeddings to provide additional context for each interaction</li>
+
+            <li><b>Multi-Layer Perceptron (MLP)</b> layers to model interactions between the sales representative, HCP and engagement strategy</li>
+
+            <li><b>Regression output</b> predicting the expected sales uplift for each recommendation</li>
+        </ul>
+
+        </div>
+
+        <br><br>
 
 
-    </li></ul>
-    <b>The Impact: </b>
-    <br>
 
-    <ul>
-        <li>✅ Integrated directly into <b>business workflows</b> for real-time personalization at scale</li>
-        <li>🏆 <b> Achieved highest YoY growth</b></li>
-         <li>🧑 <b>10,000+ HCPs</b> across multiple markets</li>
-    </ul>
-    <br>
+        <b>Engineering Challenges</b>   <br><br>
 
-    The initial model was quick to build. The real challenge was building something robust enough to work across 300+ sales reps and markets that behaved differently. Every assumption got stress-tested. Every edge case had to be handled... That's exactly the kind of problem worth solving though. <br>
+        <div style="margin-left:22px;">
+
+        Building an accurate model was only one part of the project. Equally important was integrating the recommendation engine into existing commercial workflows, ensuring recommendations could be generated reliably at scale and delivered with low latency.
+
+        </div>
     <hr> <br>
     `,
 
