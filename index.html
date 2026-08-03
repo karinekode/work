@@ -455,11 +455,12 @@ ml: null,
 gpt: {
   title: 'LLM Chatbot for Enterprise Knowledge',
   description: `
+      
     <img src="images/gpt_demo.gif" alt="Chatbot Screenshot" style="max-width: 95%; border-radius: 17px; height: auto; margin-bottom: 16px;">
-
+    <b>Knowledge Citation via RAG </b> <br>
         <ul>
        <li><b>Agentic architecture with Sub-agents</em></li> </b>
-        <p>Initially built an enterprise RAG chatbot indexing <strong>~3,000 documents</strong> across all departments. Faced 3 issues:</p>
+        <p>Initially built a RAG chatbot pipeline (~3,000 documents) across all departments. However, faced 3 issues:</p>
         <ul>
         <li><strong>Poor retrieval quality:</strong> Retrieved irrelevant chunks from unrelated departments</li>
         <li><strong>Knowledge synchronization:</strong> Documentation lived across multiple platforms <em>(SharePoint, Kwik)</em></li>
@@ -470,23 +471,30 @@ gpt: {
      <img src="images/gpt_soln2.png" alt="Chatbot Screenshot" style="max-width: 95%; border-radius: 17px; height: auto; margin-bottom: 16px;">
      <br><br>
  
-        Using MCP for tool integration was a turning point. Compared to ad-hoc API wiring, MCP gave each agent a structured, standardised way to call external tools like the Elium API - making the system far easier to extend and maintain.
+        Compared to ad-hoc API wiring, MCP gave each agent a structured, standardised way to call external tools like the Elium API - making the system far easier to extend and maintain.
 
       <br><br>
       <li><b>Fine-Tuning was used to ensure responses are Fully Cited:</em></li></b>
           <img src="images/gpt_cited.png" alt="Chatbot Screenshot" style="max-width: 95%; border-radius: 17px; height: auto; margin-bottom: 16px;">
         
       </ul>
-    
 
-    <b>What I Learnt: </b> <br>
+    <b>Evaluation </b> <br>
     <ul>
-    
-        Designing multi-agent systems forced me to think beyond model selection, the hard part is defining clean boundaries between agents. Each agent needs a well-scoped retrieval strategy, predictable failure modes, and a clear handoff protocol, otherwise errors cascade silently and are difficult to debug in production
+            
+        Designing multi-agent systems taught me to think beyond model selection. The real challenge is defining clean boundaries between agents. Each agent needs a well-scoped retrieval strategy, predictable failure modes, and a clear handoff protocol. Otherwise, errors can cascade silently and become difficult to debug in production.
+
         <br><br>
+        I built a scalable evaluation pipeline combining human review with LLM-as-a-judge. Starting with 100 real user queries collected across teams, I generated 500 synthetic Q&A cases to broaden test coverage. A representative sample was then human-annotated for accuracy, relevance, and tone, with 70% used to calibrate the judge through disagreement analysis and prompt refinement. I validated the final judge on the remaining holdout set using Spearman correlation, exact agreement, and within-one-point agreement against human scores. Once validated, the judge was deployed across the remaining 400 cases, enabling faster and more consistent evaluation at scale while retaining human oversight.
+        <br><br>
+    
+    </ul>
+
+    <b>Tackling Cost & Latency </b> <br>
+    <ul>
         On the infrastructure side, optimising inference pipelines taught me that latency isn't just a technical metric,  it directly affects whether users trust and adopt the tool. A response that takes too long feels unreliable, regardless of accuracy.
         <br><br>
-        I tackled this through three key strategies: <br>
+        I tackled this through 3 key strategies: <br>
         
         <ul>
         <li><strong>Semantic caching</strong>: frequently asked queries are matched against a pre-built Q&A database in BigQuery. Similar queries bypass the LLM entirely, delivering near-instant, accurate responses</li>
@@ -495,8 +503,6 @@ gpt: {
         </ul>  
         <br>
          
-         Overall, the difference in user experience was immediately noticeable - receiving great user feedback & adoption!
-
 
     </ul>
 
