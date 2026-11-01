@@ -1,0 +1,21 @@
+/* Animated architecture diagrams (no invented data) */
+.diagram { margin: 24px 0; padding: 20px; border-radius: 14px; background: var(--bg-alt); border: 1px solid var(--line); }
+.diagram.reset * { transition: none !important; }
+.diagram figcaption { margin-top: 12px; }
+.d-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.d-svg { display: block; width: 100%; min-width: 660px; height: auto; overflow: visible; }
+.d-svg text { font: 600 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: var(--muted); transition: fill .3s; }
+.d-svg text.sub { font-size: 11.5px; font-weight: 500; }
+.d-svg text.on { fill: var(--text); }
+.d-svg text.sub.on { fill: var(--accent); }
+.d-svg .note { font-size: 12px; font-weight: 500; }
+
+.box { fill: var(--bg); stroke: var(--line); stroke-width: 1.5; transition: fill .3s, stroke .3s; }
+.box.on { fill: var(--accent-soft); stroke: var(--accent); }
+.edge { fill: none; stroke: var(--line); stroke-width: 2; }
+.edge.thin { stroke-width: 1; }
+.flow { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset .45s ease; }
+.flow.thin { stroke-width: 1.2; }
+.flow.on { stroke-dashoffset: 0; }
+.node { fill: var(--bg); stroke: var(--line); stroke-width: 2; transition: fill .3s, stroke .3s; }
+.node.on { fill: var(--accent); stroke: var(--accent); }
